@@ -24,7 +24,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 
 const formSchema = z
   .object({
@@ -58,25 +58,25 @@ const SignUpForm = () => {
   });
 
   async function onSubmit(values: FormValues) {
-    // await authClient.signUp.email({
-    //   name: values.name,
-    //   email: values.email,
-    //   password: values.password,
-    //   fetchOptions: {
-    //     onSuccess: () => {
-    //       router.push("/");
-    //     },
-    //     onError: (error) => {
-    //       if (error.error.code === "USER_ALREADY_EXISTS") {
-    //         toast.error("E-mail já cadastrado.");
-    //         return form.setError("email", {
-    //           message: "E-mail já cadastrado.",
-    //         });
-    //       }
-    //       toast.error(error.error.message);
-    //     },
-    //   },
-    // });
+    await authClient.signUp.email({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/");
+        },
+        onError: (error) => {
+          if (error.error.code === "USER_ALREADY_EXISTS") {
+            toast.error("E-mail já cadastrado.");
+            return form.setError("email", {
+              message: "E-mail já cadastrado.",
+            });
+          }
+          toast.error(error.error.message);
+        },
+      },
+    });
   }
 
   return (
