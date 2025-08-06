@@ -24,7 +24,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 
 const formSchema = z.object({
   email: z.email("E-mail inválido!"),
@@ -44,40 +44,40 @@ const SignInForm = () => {
   });
 
   async function onSubmit(values: FormValues) {
-    // await authClient.signIn.email({
-    //   email: values.email,
-    //   password: values.password,
-    //   fetchOptions: {
-    //     onSuccess: () => {
-    //       router.push("/");
-    //     },
-    //     onError: (ctx) => {
-    //       if (ctx.error.code === "USER_NOT_FOUND") {
-    //         toast.error("E-mail não encontrado.");
-    //         return form.setError("email", {
-    //           message: "E-mail não encontrado.",
-    //         });
-    //       }
-    //       if (ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
-    //         toast.error("E-mail ou senha inválidos.");
-    //         form.setError("password", {
-    //           message: "E-mail ou senha inválidos.",
-    //         });
-    //         return form.setError("email", {
-    //           message: "E-mail ou senha inválidos.",
-    //         });
-    //       }
-    //       toast.error(ctx.error.message);
-    //     },
-    //   },
-    // });
+    await authClient.signIn.email({
+      email: values.email,
+      password: values.password,
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/");
+        },
+        onError: (ctx) => {
+          if (ctx.error.code === "USER_NOT_FOUND") {
+            toast.error("E-mail não encontrado.");
+            return form.setError("email", {
+              message: "E-mail não encontrado.",
+            });
+          }
+          if (ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
+            toast.error("E-mail ou senha inválidos.");
+            form.setError("password", {
+              message: "E-mail ou senha inválidos.",
+            });
+            return form.setError("email", {
+              message: "E-mail ou senha inválidos.",
+            });
+          }
+          toast.error(ctx.error.message);
+        },
+      },
+    });
   }
 
-  // const handleSignInWithGoogle = async () => {
-  //   await authClient.signIn.social({
-  //     provider: "google",
-  //   });
-  // };
+  const handleSignInWithGoogle = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
     <>
@@ -128,7 +128,7 @@ const SignInForm = () => {
               <Button
                 variant="outline"
                 className="w-full"
-                // onClick={handleSignInWithGoogle}
+                onClick={handleSignInWithGoogle}
                 type="button"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4">
