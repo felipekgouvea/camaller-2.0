@@ -12,9 +12,11 @@ interface ProductItemProps {
 
 const ProductItem = ({ product }: ProductItemProps) => {
   const firstVariant = product.variants[0];
-  console.log(`Imagem do Felipe: ${firstVariant.imageUrl}`);
   return (
-    <Link href="/" className="flex flex-col gap-4">
+    <Link
+      href={`/product-varient/${firstVariant.slug}`}
+      className="flex flex-col gap-4"
+    >
       <Image
         src={firstVariant.imageUrl}
         alt={firstVariant.name}
