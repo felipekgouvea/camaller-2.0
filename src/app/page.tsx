@@ -57,8 +57,8 @@ const Home = async () => {
           />
         </div>
         <ProductList products={newlyCreatedProducts} title="Novos produtos" />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
