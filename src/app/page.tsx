@@ -31,12 +31,12 @@ const Home = async () => {
       <div className="space-y-6">
         <div className="px-5">
           <Image
-            src="/banner-01.png"
+            src="/banner-03.png"
             alt="Leve uma vida com estilo"
             width={0}
             height={0}
             sizes="100vw"
-            className="h-auto w-full"
+            className="mt-4 h-auto w-full rounded-3xl"
           />
         </div>
 

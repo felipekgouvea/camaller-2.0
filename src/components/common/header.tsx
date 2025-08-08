@@ -6,9 +6,9 @@ import Menu from "./menu";
 
 export const Header = () => {
   return (
-    <header className="border-accent mb-4 flex h-[80px] items-center justify-between border-b-2 p-5">
+    <header className="border-accent flex h-[80px] items-center justify-between border-b-2 p-5">
       <Link href="/">
-        <Image src="/logo.png" alt="Camaler" width={70} height={20} />
+        <Image src="/logo.png" alt="Camaler" width={80} height={30} />
       </Link>
 
       <div className="flex items-center gap-3">
