@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Cart from "./cart";
 import Menu from "./menu";
+import { Cart } from "./cart";
 
 export const Header = () => {
   return (
