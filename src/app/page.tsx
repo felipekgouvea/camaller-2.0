@@ -48,12 +48,12 @@ const Home = async () => {
 
         <div className="px-5">
           <Image
-            src="/banner-02.png"
-            alt="Seja Autêntico"
+            src="/banner-04.png"
+            alt="Use Camaller"
             width={0}
             height={0}
             sizes="100vw"
-            className="h-auto w-full"
+            className="h-auto w-full rounded-3xl"
           />
         </div>
         <ProductList products={newlyCreatedProducts} title="Novos produtos" />
