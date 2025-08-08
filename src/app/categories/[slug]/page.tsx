@@ -1,11 +1,11 @@
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
+import Footer from "@/components/common/footer";
 import { Header } from "@/components/common/header";
 import ProductItem from "@/components/common/product-item";
 import { db } from "@/db";
 import { categoryTable, productTable } from "@/db/schema";
-import Footer from "@/components/common/footer";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;

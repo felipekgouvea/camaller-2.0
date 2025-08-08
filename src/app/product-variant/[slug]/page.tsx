@@ -8,6 +8,7 @@ import ProductList from "@/components/common/product-list";
 import { db } from "@/db";
 import { productTable, productVariantTable } from "@/db/schema";
 import { formatCentsToBRL } from "@/helpers/money";
+
 import ProductActions from "../components/product-actions";
 import VariantSelector from "../components/variant-selector";
 
