@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "fsc-projects-static.s3.us-east-1.amazonaws.com",
-        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cerg-food.s3.us-east-2.amazonaws.com",
       },
     ],
   },
